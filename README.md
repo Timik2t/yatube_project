@@ -1,6 +1,7 @@
 # YATUBE - социальная сеть
 ### Описание
 Социальная сеть блогеров 
+Прогресс
 ![progress](http://www.yarntomato.com/percentbarmaker/button.php?barPosition=5&leftFill=%23FF0000 "progress") 
 
 ### Технологии
