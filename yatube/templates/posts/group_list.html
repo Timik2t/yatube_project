@@ -6,18 +6,19 @@
       Группа тайных поклонников графа.
     </p>
     <article>
+      <p>Описание: {{ post.group.description }}</p> 
       {% for post in posts %}
-      <ul>
-        <li>
-          Автор: {{ post.author.get_full_name }}
-        </li>
-        <li>
-          Дата публикации: {{ post.pub_date|date:"d E Y" }}
-        </li>
-      </ul>
-      <p>{{ post.text }}</p>    
-      {% if not forloop.last %}<hr>{% endif %}
-    {% endfor %} 
+        <ul>
+          <li>
+            Автор: {{ post.author.get_full_name }}
+          </li>
+          <li>
+            Дата публикации: {{ post.pub_date|date:"d E Y" }}
+          </li>
+        </ul>
+        <p>{{ post.text|linebreaksbr }}</p>    
+       {% if not forloop.last %}<hr>{% endif %}
+      {% endfor %} 
     </article>
     <!-- под последним постом нет линии -->
   </div>  
