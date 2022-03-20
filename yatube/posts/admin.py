@@ -20,4 +20,4 @@ class PostAdmin(admin.ModelAdmin):
 
 @admin.register(Group)
 class GroupAdmin(admin.ModelAdmin):
-    pass
+    prepoplated_fields = {'slug': ('title',)}
