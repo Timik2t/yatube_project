@@ -8,7 +8,6 @@ LIMIT = 10
 def index(request):
     posts = Post.objects.all()[:LIMIT]
     context = {
-        'title': 'Последние обновления на сайте',
         'posts': posts,
     }
     return render(request, 'posts/index.html', context)
@@ -20,6 +19,5 @@ def group_posts(request, slug):
     context = {
         'group': group,
         'posts': posts,
-        'title': f'Записи сообщества {group}',
     }
     return render(request, 'posts/group_list.html', context)

@@ -1,12 +1,14 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+{% block title %}
+  {{ group.title }}
+{% endblock %} 
 {% block content %}
   <div class="container">
-    <h1>Лев Толстой – зеркало русской революции.</h1>
+    <h1>{{ group.description }}</h1>
     <p>
-      Группа тайных поклонников графа.
+      {{ group.title }}
     </p>
     <article>
-      <p>Описание: {{ post.group.description }}</p> 
       {% for post in posts %}
         <ul>
           <li>
