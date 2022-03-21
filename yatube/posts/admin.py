@@ -20,4 +20,4 @@ class PostAdmin(admin.ModelAdmin):
 
 @admin.register(Group)
 class GroupAdmin(admin.ModelAdmin):
-    prepoplated_fields = {'slug': ('title',)}
+    prepopulated_fields = {"slug": ("title",)}
