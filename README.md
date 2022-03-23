@@ -1,7 +1,7 @@
 # YATUBE - социальная сеть
 ### Описание
 Прогресс
-![progress](http://www.yarntomato.com/percentbarmaker/button.php?barPosition=5&leftFill=%23FF0000 "progress") 
+![progress](http://www.yarntomato.com/percentbarmaker/button.php?barPosition=35&leftFill=%23FF0000 "progress") 
 
 ### Технологии
 - Python 3.7
