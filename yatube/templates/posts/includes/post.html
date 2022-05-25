@@ -1,0 +1,18 @@
+{% load thumbnail %}
+<div class="card mb-3" style="width: 70rem;">
+  <div class="card-body">
+    <h5 class="card-title">
+      Автор: <a href="{% url 'posts:profile' post.author.username %}">
+        {{ post.author.get_full_name }}</a>
+    </h5>
+    <p class="card-text"><small class="text-muted">{{ post.pub_date|date:"d E Y" }}</small></p>
+    {% thumbnail post.image "1280x720" crop="center" padding=True upscale=True as im %}
+      <img class="img-fluid rounded-start" src="{{ im.url }}" alt="Card image cap">
+    {% endthumbnail %}
+    <p class="card-text">{{ post.text|linebreaks }}</p>
+    <a href="{% url 'posts:post_detail' post.pk %}" class="card-link">Подробнее</a>
+    {% if post.group and not no_display_group %}
+      <a href="{% url 'posts:group_list' post.group.slug %}" class="card-link">#{{ post.group.title }}</a>
+    {% endif %}
+  </div>
+</div>

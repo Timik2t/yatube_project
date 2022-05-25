@@ -1,0 +1,70 @@
+<!-- templates/about/author.html -->
+{% extends "base.html" %}
+{% block title %}Об авторе проекта{% endblock %}
+{% block content %}
+<style>
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+</style>
+<div class="container">
+  <div class="row">
+      <div class="col-12">
+          <h1>Привет, я автор</h1>
+      </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <p>
+            Моя основная деятельность - проектирование систем управления
+            для установок автоматизированного ультразвукового контроля
+              (<a href="https://ru.wikipedia.org/wiki/Ультразвуковая_дефектоскопия" target="_blank">УЗК</a>),
+              механизированные сканеры и прочие приспособления для улучшения качества
+              и скорости проведения неразрушающего контроля.
+          </p>
+          <p>
+            В рабочих проектах я разрабатываю:
+              <ul>
+                <li>Электрические схемы
+                <li>Программы управления
+                <li>3-D модели оборудования
+              </ul>
+          </p>
+          <p>
+            С 2018 года являюсь аспирантом НИУ МЭИ.
+              В рамках учебного процесса веду лабораторные занятия по курсу "Электротехника и электроника",
+              где помогаю студентам освоить базовые навыки в создании и расчете электрических цепей.
+          </p>
+          <p>
+            В 2022 году я решил окунуться в новую для себя область - веб-разработку.
+              В связи с чем пошел на курсы 
+              <a href="https://practicum.yandex.ru" target="_blank">"Яндекс Практикум"</a>,
+              где в рамках обучения и создаю этот блог.
+          </p>              
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <img src="https://cdn.pixabay.com/photo/2018/07/04/16/16/kitten-3516412_960_720.jpg">
+      </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>Контакты для связи</h2>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <p>Телефон: +7 (9**) ***-**-**</p>
+      <p>Github: <a href=https://github.com/Timik2t target="_blank">Timik2t</a></p>
+      <p>Телеграм: @mytelegramm</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,27 +1,14 @@
 {% extends 'base.html' %}
-{% block title %}
-  {{ group.title }}
-{% endblock %} 
+{% block title %} {{ group.title }} {% endblock title %}
 {% block content %}
+  {% load thumbnail %}
   <div class="container">
-    <h1>{{ group.description|linebreaksbr }}</h1>
-    <p>
-      {{ group.title }}
-    </p>
-    <article>
-      {% for post in posts %}
-        <ul>
-          <li>
-            Автор: {{ post.author.get_full_name }}
-          </li>
-          <li>
-            Дата публикации: {{ post.pub_date|date:"d E Y" }}
-          </li>
-        </ul>
-        <p>{{ post.text|linebreaksbr }}</p>    
-       {% if not forloop.last %}<hr>{% endif %}
-      {% endfor %} 
-    </article>
-    <!-- под последним постом нет линии -->
-  </div>  
-{% endblock %} 
+    <h1>{{ group.title }}</h1>
+    <p>{{ group.description|linebreaksbr }}</p>
+      {% for post in page_obj %}
+        {% include 'posts/includes/post.html' with no_display_group=True %}
+        {% if not forloop.last %}<p>{% endif %}
+      {% endfor %}
+      {% include 'posts/includes/paginator.html' %}
+    </div>
+  {% endblock %}

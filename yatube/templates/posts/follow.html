@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
-{% block title %}Последние обновления на сайте{% endblock title %}
+{% block title %}Избранное{% endblock title %}
 {% block content %}
   {% load thumbnail %}
   <div class="container">
-    <h1>Последние обновления на сайте</h1>
-    {% include 'posts/includes/switcher.html' with index=True %}
+    <h1>Избранное</h1>
+    {% include 'posts/includes/switcher.html' with follow=True %}
     {% for post in page_obj %}
       {% include 'posts/includes/post.html' %}
       {% if not forloop.last %}<p>{% endif %}
     {% endfor %}
     {% include 'posts/includes/paginator.html' %}
   </div>
-{% endblock content %}
+{% endblock %}

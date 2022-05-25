@@ -1,2 +1,13 @@
-<!-- тег span используется для добавления нужных стилей отдельным участкам текста --> 
-<p>© 2021 Copyright <span style="color:red">Ya</span>tube</p>
+{% load static %}
+<footer>
+  <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"> Go top</a></li>
+    <a class="navbar-brand" href="https://github.com/Timik2t" target="_blank">
+      <img src="{% static 'img/github.png' %}"
+            width="30"
+            height="30"
+            class="d-inline-block align-top"
+            alt="">
+  </ul>
+  <p class="text-center text-muted">&copy;{{ year }} Copyright <span style="color:red">Ya</span>tube</p>
+</footer>
