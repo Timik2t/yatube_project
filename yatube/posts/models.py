@@ -49,6 +49,12 @@ class Post(models.Model):
         upload_to='posts/',
         blank=True
     )
+    likes = models.ManyToManyField(
+        User,
+        blank=True,
+        related_name='likes',
+        verbose_name='Лайк'
+    )
 
     def __str__(self):
         return (self.DISPLAY.format(

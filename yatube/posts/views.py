@@ -125,3 +125,18 @@ def profile_unfollow(request, username):
         author__username=username
     ).delete()
     return redirect('posts:profile', username=username)
+
+
+@login_required
+def add_like(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    is_like = False
+    for like in post.likes.all():
+        if like == request.user:
+            is_like = True
+            break
+    if not is_like:
+        post.likes.add(request.user)
+    if is_like:
+        post.likes.remove(request.user)
+    return redirect(request.POST.get('text'))

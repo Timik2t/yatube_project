@@ -1,5 +1,4 @@
 {% load user_filters %}
-
 {% if user.is_authenticated %}
   <div class="card my-4">
     <h5 class="card-header">Комментировать:</h5>
@@ -14,7 +13,6 @@
     </div>
   </div>
 {% endif %}
-
 {% for comment in post.comments.all %}
   <div class="media mb-4">
     <div class="media-body">
@@ -23,9 +21,9 @@
           {{ comment.author.username }}
         </a>
       </h5>
-        <p>
-         {{ comment.text|linebreaks }}
-        </p>
+        <p><small class="text-muted">{{ comment.created|date:"d E Y" }}</small></p>
+        <p>{{ comment.text|linebreaks }}</p>
+        {% if not forloop.last %}<hr>{% endif %}
       </div>
     </div>
 {% endfor %}

@@ -10,9 +10,9 @@
       <img class="img-fluid rounded-start" src="{{ im.url }}" alt="Card image cap">
     {% endthumbnail %}
     <p class="card-text">{{ post.text|linebreaks }}</p>
-    <a href="{% url 'posts:post_detail' post.pk %}" class="card-link">Подробнее</a>
     {% if post.group and not no_display_group %}
       <a href="{% url 'posts:group_list' post.group.slug %}" class="card-link">#{{ post.group.title }}</a>
     {% endif %}
+    <p>{% include "posts/includes/like_comment.html" %}</p>
   </div>
 </div>
