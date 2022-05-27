@@ -1,5 +1,5 @@
 {% load thumbnail %}
-<div class="card mb-3" style="width: 70rem;">
+<div class="card mb-3" style="width: {{post_width}};">
   <div class="card-body">
     <h5 class="card-title">
       Автор: <a href="{% url 'posts:profile' post.author.username %}">
@@ -15,4 +15,9 @@
     {% endif %}
     <p>{% include "posts/includes/like_comment.html" %}</p>
   </div>
+  {% if user == post.author %}
+        <a class="btn btn-sm btn-outline-secondary" href="{% url 'posts:post_edit' post.pk %}" role="button">
+          Редактировать
+        </a>
+    {% endif %}
 </div>

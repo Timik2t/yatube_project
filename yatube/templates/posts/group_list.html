@@ -3,10 +3,12 @@
 {% block content %}
   {% load thumbnail %}
   <div class="container">
-    <h1>{{ group.title }}</h1>
-    <p>{{ group.description|linebreaksbr }}</p>
+    <figure class="text-center">
+      <h1>{{ group.title }}</h1>
+      <p><em>{{ group.description|linebreaksbr }}</em></p>
+    </figure>
       {% for post in page_obj %}
-        {% include 'posts/includes/post.html' with no_display_group=True %}
+        {% include 'posts/includes/post.html' with no_display_group=True post_width=68rem %}
         {% if not forloop.last %}<p>{% endif %}
       {% endfor %}
       {% include 'posts/includes/paginator.html' %}

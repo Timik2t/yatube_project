@@ -18,7 +18,7 @@
           </li>
         {% endif %}
         {% if user == post.author %}
-        <a class="btn btn-sm btn-info" href="{% url 'posts:post_edit' post.pk %}" role="button">
+        <a class="btn btn-sm btn-secondary" href="{% url 'posts:post_edit' post.pk %}" role="button">
           Редактировать
         </a>
         {% endif %}

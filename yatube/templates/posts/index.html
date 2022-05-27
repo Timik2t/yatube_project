@@ -2,13 +2,34 @@
 {% block title %}Последние обновления на сайте{% endblock title %}
 {% block content %}
   {% load thumbnail %}
+  <p></p>
+  <main class="container">
+    {% if page_obj.number == 1%}
+      <div class="p-5 p-md-5 mb-4 text-white rounded bg-secondary">
+        <div class="col-md-10 px-0">
+          <h1 class="display-4 fst-italic">Привет, гость!</h1>
+          <p class="lead my-3"><em>Этот блог создан в рамках учебного курса 
+            <a href="https://practicum.yandex.ru" class="link-dark" target="_blank">"Яндекс Практикум"</a>
+            и самостоятельных потуг </em> <span>&#x1F609</span>
+          </p>
+          <p class="lead my-3"><em>Здесь вы можете регистрироваться, писать посты,
+            подписываться на других пользовотелей, оставлять коменты и ставить лукасы.</em>
+          </p>
+          <p class="lead my-3"><em>Функционал будет постепенно расширяться </em><span>😈</span>
+          </p>
+        </div>
+      </div>
+    {% endif %}
   <div class="container">
-    <h1>Последние обновления на сайте</h1>
+    <figure class="text-center">
+      <h1>Последние обновления на сайте</h1>
+    </figure>
     {% include 'posts/includes/switcher.html' with index=True %}
     {% for post in page_obj %}
-      {% include 'posts/includes/post.html' %}
+      {% include 'posts/includes/post.html' with post_width=68rem %}
       {% if not forloop.last %}<p>{% endif %}
     {% endfor %}
     {% include 'posts/includes/paginator.html' %}
   </div>
+</main>
 {% endblock content %}
