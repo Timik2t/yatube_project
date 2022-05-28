@@ -1,7 +1,9 @@
 {% load static %}
 <footer>
   <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"> Go top</a></li>
+    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Вверх</a></li>
+    <li class="nav-item"><a href="{% url 'about:author' %}" class="nav-link px-2 text-muted">Автор</a></li>
+    <li class="nav-item"><a href="{% url 'about:tech' %}" class="nav-link px-2 text-muted">Технологии</a></li>
     <a class="navbar-brand" href="https://github.com/Timik2t" target="_blank">
       <img src="{% static 'img/github.png' %}"
             width="30"

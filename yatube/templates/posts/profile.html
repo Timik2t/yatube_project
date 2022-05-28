@@ -2,28 +2,16 @@
 {% block title %}Профайл пользователя {{ author.get_full_name }} {% endblock title %}
 {% block content %}
   {% load thumbnail %}
-  <div class="container">
     <div class="row g-5">
-      <div class="col-md-8">
-        <figure class="text-center">
-          <p><h3>{{ author.get_full_name }} все посты</h3></p>
-        </figure>
-        {% for post in page_obj %}
-          {% include 'posts/includes/post.html' with post_width=50rem %}
-          {% if not forloop.last %}<p>{% endif %}
-        {% endfor %}
-        {% include 'posts/includes/paginator.html' %}
-      </div>
-  
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="position-sticky" style="top: 1rem;">
-          <div class="p-4 mb-3">
+          <div class="p-4 mb-9">
             <ul class="list-group">
               <li class="list-group-item active" aria-current="true">
                 {{ author.get_full_name }}
               </li>
               <li class="list-group-item">Постов: {{ author.posts.count }}</li>
-              <li class="list-group-item">Оставлено комментариев: {{ author.comments.count }}</li>
+              <li class="list-group-item">Комментариев: {{ author.comments.count }}</li>
               <li class="list-group-item">Подписок: {{ author.follower.count }}</li>
               <li class="list-group-item">Подписано: {{ author.following.count }}</li>
               {% if user != author and user.is_authenticated %}
@@ -40,6 +28,16 @@
             </ul>
           </div>
         </div>
+      </div>
+      <div class="col-md-8">
+        <figure class="text-center">
+          <p><h3>{{ author.get_full_name }} все посты</h3></p>
+        </figure>
+        {% for post in page_obj %}
+          {% include 'posts/includes/post.html' with post_width=50rem %}
+          {% if not forloop.last %}<p>{% endif %}
+        {% endfor %}
+        {% include 'posts/includes/paginator.html' %}
       </div>
 
     </div>

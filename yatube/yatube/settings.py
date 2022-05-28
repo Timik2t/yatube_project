@@ -24,14 +24,13 @@ SECRET_KEY = 'r6^cd33+)mby_=*d_mu0v6ttopwfcry0nz8(o_7f*-s@fdouj7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '[::1]',
     'testserver',
-    'www.Timik2t.pythonanywhere.com',
-    'Timik2t.pythonanywhere.com'
+    'www.timik2t.pythonanywhere.com',
+    'timik2t.pythonanywhere.com',
 ]
 
 # Application definition
