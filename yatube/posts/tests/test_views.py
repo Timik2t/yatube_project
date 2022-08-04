@@ -93,10 +93,10 @@ class PostPagesTests(TestCase):
             author=self.user
         )
         post_obj_urls = {
+            self.POST_DETAIL: 'post',
             INDEX: 'page_obj',
             GROUP_LIST_1: 'page_obj',
             PROFILE: 'page_obj',
-            self.POST_DETAIL: 'post',
             FOLLOW_INDEX: 'page_obj',
         }
         for url, post_obj in post_obj_urls.items():

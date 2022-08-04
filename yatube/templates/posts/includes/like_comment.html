@@ -5,13 +5,19 @@
       {% csrf_token %}
       <input type="hidden" name="text" value="{{ request.path }}">
       <button style="background: transparent; border: none; box-shadow: none;" type="submit">
-          <img src="{% static 'img/heart.svg' %}"
-          {% if post.likes.all.count > 0 %}
-          <span> {{ post.likes.all.count }}</span>
-          {% endif %}
+        <img src="{% static 'img/heart.png' %}"
+              class="img-fluid"
+              width="20"
+              height="20"
+              alt="">
       </button>
     </form>
   </li>
+  {% if post.likes.all.count > 0 %}
+    <li class="list-group-item">
+      {{ post.likes.all.count }}
+    </li>
+  {% endif %}
   <a href="{% url 'posts:post_detail' post.pk %}" class="list-group-item link-primary">
       Комментариев: {{ post.comments.count }}</a>
 </ul>

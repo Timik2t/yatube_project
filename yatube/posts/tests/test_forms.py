@@ -74,6 +74,7 @@ class PostPagesTests(TestCase):
             'posts:post_edit',
             kwargs={'post_id': cls.post.pk}
         )
+        cls.POST_EDIT_REDIRECT = f'{LOGIN_REDIRECT}{cls.POST_EDIT}'
         cls.POST_DETAIL = reverse(
             'posts:post_detail',
             kwargs={'post_id': cls.post.pk}
@@ -149,9 +150,12 @@ class PostPagesTests(TestCase):
             'group': self.group_edit.pk,
             'image': UPLOADED_ANOTHER,
         }
-        CLIENTS = [self.another, self.guest]
-        for client in CLIENTS:
-            client.post(
+        CASES = [
+            [self.another, self.POST_DETAIL],
+            [self.guest, self.POST_EDIT_REDIRECT]
+        ]
+        for client, redirect in CASES:
+            response = client.post(
                 self.POST_EDIT,
                 data=form_data,
                 follow=True
@@ -161,6 +165,7 @@ class PostPagesTests(TestCase):
             self.assertEqual(self.post.author, post.author)
             self.assertEqual(self.group.pk, post.group.pk)
             self.assertEqual(self.post.image, post.image)
+            self.assertRedirects(response, redirect)
 
     def test_add_comment(self):
         """Валидная форма добавляет комментарий"""

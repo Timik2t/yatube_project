@@ -2,36 +2,38 @@
 {% block title %}Пост {{ post.text|truncatechars:30 }}{% endblock title %}
 {% block content %}
   {% load thumbnail %}
-  <div class="row">
-    <aside class="col-12 col-md-3">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Дата публикации: {{ post.pub_date|date:"d E Y" }}</li>
-        <li class="list-group-item">
-          <a href="{% url 'posts:profile' post.author.username %}">
-            {{ post.author.get_full_name }}</a></li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          Всего постов автора:  <span >{{ post.author.posts.count }}</span>
-        </li>
-        {% if post.group %}
+  <main class="container">
+    <div class="row">
+      <aside class="col-12 col-md-3">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Дата публикации: {{ post.pub_date|date:"d E Y" }}</li>
           <li class="list-group-item">
-            <a href="{% url 'posts:group_list' post.group.slug %}">#{{ post.group.title }}</a>
+            <a href="{% url 'posts:profile' post.author.username %}">
+              {{ post.author.get_full_name }}</a></li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Всего постов автора:  <span >{{ post.author.posts.count }}</span>
           </li>
-        {% endif %}
-        {% if user == post.author %}
-        <a class="btn btn-sm btn-secondary" href="{% url 'posts:post_edit' post.pk %}" role="button">
-          Редактировать
-        </a>
-        {% endif %}
-      </ul>
-    </aside>
-    <article class="col-12 col-md-8">
-      {% thumbnail post.image "1280x720" crop="center" upscale=True as im %}
-        <img class="card-img my-2" src="{{ im.url }}">
-      {% endthumbnail %}
-      <p>{{ post.text|linebreaks }}</p>
-      {% if not forloop.last %}<hr>{% endif %}
-      {% include "posts/includes/like_comment.html" %}   
-      <p>{% include "posts/includes/comments.html" with comments=comments %}</p>
-    </article>
-  </div>
+          {% if post.group %}
+            <li class="list-group-item">
+              <a href="{% url 'posts:group_list' post.group.slug %}">#{{ post.group.title }}</a>
+            </li>
+          {% endif %}
+          {% if user == post.author %}
+          <a class="btn btn-sm btn-secondary" href="{% url 'posts:post_edit' post.pk %}" role="button">
+            Редактировать
+          </a>
+          {% endif %}
+        </ul>
+      </aside>
+      <article class="col-12 col-md-8">
+        {% thumbnail post.image "1280x720" crop="center" upscale=True as im %}
+          <img class="card-img my-2" src="{{ im.url }}">
+        {% endthumbnail %}
+        <p>{{ post.text|linebreaks }}</p>
+        {% if not forloop.last %}<hr>{% endif %}
+        {% include "posts/includes/like_comment.html" %}   
+        <p>{% include "posts/includes/comments.html" with comments=comments %}</p>
+      </article>
+    </div>
+  </main>
 {% endblock content %}

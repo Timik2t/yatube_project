@@ -1,5 +1,0 @@
-{% extends "base.html" %}
-{% block title %}Об авторе проекта{% endblock %}
-{% block content %}
-
-{% endblock content %}

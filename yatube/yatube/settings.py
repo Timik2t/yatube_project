@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'r6^cd33+)mby_=*d_mu0v6ttopwfcry0nz8(o_7f*-s@fdouj7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
@@ -31,6 +31,7 @@ ALLOWED_HOSTS = [
     'testserver',
     'www.timik2t.pythonanywhere.com',
     'timik2t.pythonanywhere.com',
+    '158.160.9.90',
 ]
 
 # Application definition
