@@ -1,20 +1,56 @@
 # YATUBE - социальная сеть
-### Описание
-Прогресс
-![progress](http://www.yarntomato.com/percentbarmaker/button.php?barPosition=99&leftFill=%23FF0000 "progress") 
 
-### Технологии
+YATUBE - это социальная сеть, которая позволяет пользователям зарегистрироваться на сайте, создавать посты, просматривать посты в группах, а также подписываться на других авторов.
+
+## Описание проекта
+
+YATUBE предоставляет следующие функции:
+- Регистрация и аутентификация пользователей с использованием JWT токена
+- Создание постов с возможностью добавления изображения и выбора группы
+- Просмотр постов в выбранной группе
+- Подписка/отписка от других авторов
+- Хранение данных в SQLite
+
+## Технологии
+
 - Python 3.7
 - Django 2.2.19
-### Запуск проекта в dev-режиме
-- Установите и активируйте виртуальное окружение
-- Установите зависимости из файла requirements.txt
-```
-pip install -r requirements.txt
-``` 
-- В папке с файлом manage.py выполните команду:
-```
-python3 manage.py runserver
-```
-### Авторы
+
+## Подготовка и запуск проекта
+
+1. Склонируйте репозиторий на локальную машину:
+
+    ```bash
+    git clone git@github.com:Timik2t/cat_charity_fund.git
+    ```
+
+2. Создайте и активируйте виртуальное окружение:
+
+    ```bash
+    python -m venv venv
+    ```
+
+    Активация окружения
+    ```bash
+    # Windows
+    source venv/Scripts/activate
+    ```
+    ```bash
+    # Linux
+    source venv/bin/activate
+    ```
+3. Установите зависимости:
+    ```bash
+    pip install -r requirements.txt
+    ```
+4. В папке с файлом `manage.py` выполните команду:
+   ```bash
+   python3 manage.py runserver
+   ```
+5. Создание суперпользователя:
+   ```bash
+   python yatube_api/manage.py createsuperuser
+   ```
+
+### Автор
 [Tim](https://github.com/Timik2t)
