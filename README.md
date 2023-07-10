@@ -43,14 +43,18 @@ YATUBE предоставляет следующие функции:
     ```bash
     pip install -r requirements.txt
     ```
-4. В папке с файлом `manage.py` выполните команду:
+4. Выполните миграции:
+   ```bash
+   python3 manage.py migrate
+   ```
+5. В папке с файлом `manage.py` выполните команду:
    ```bash
    python3 manage.py runserver
    ```
-5. Создание суперпользователя:
+6. Создание суперпользователя:
    ```bash
    python yatube_api/manage.py createsuperuser
    ```
 
 ### Автор
-[Tim](https://github.com/Timik2t)
+[Тимур](https://github.com/Timik2t)
