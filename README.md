@@ -21,7 +21,7 @@ YATUBE предоставляет следующие функции:
 1. Склонируйте репозиторий на локальную машину:
 
     ```bash
-    git clone git@github.com:Timik2t/cat_charity_fund.git
+    git@github.com:Timik2t/yatube_project.git
     ```
 
 2. Создайте и активируйте виртуальное окружение:
